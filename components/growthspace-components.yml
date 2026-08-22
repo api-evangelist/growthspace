@@ -1,0 +1,54 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  https://app.growthspace.com/ (script tags) +
+  https://storage.googleapis.com/storage/v1/b/gs-expertx-widget/o
+note: >-
+  Growthspace ships one first-party embeddable client-side component. It is not
+  documented anywhere on the public site; it was found in the app bundle's
+  script tags and confirmed by fetching the module and listing the public
+  Google Cloud Storage bucket that serves it.
+families:
+- family: ExpertX
+  description: >-
+    The on-demand expert surface Growthspace markets as ExpertX, delivered as a
+    framework-agnostic custom element that a host page can drop in.
+  components:
+  - tag: expertx-agent
+    type: web-component
+    framework: Stencil
+    loader: https://storage.googleapis.com/gs-expertx-widget/expertx-agent.esm.js
+    stylesheet: https://storage.googleapis.com/gs-expertx-widget/expertx-agent.css
+    attributes:
+    - agent-id
+    - auth-token
+    - agent-name
+    - agent-avatar
+    - language
+    note: >-
+      Attribute list read verbatim from the Stencil component registration in
+      expertx-agent.esm.js. The component takes an auth-token, so embedding it
+      requires a Growthspace-issued credential.
+    versioning: unpinned
+    last_modified: '2026-07-09'
+third_party_loaders_observed:
+- name: Merge
+  url: https://cdn.merge.dev/initialize.js
+  note: >-
+    Third-party unified HRIS/integrations vendor loaded by app.growthspace.com.
+    Recorded as an observation about how Growthspace brokers HRIS
+    synchronisation; it is Merge's component, not a Growthspace one.
+- name: Cronofy UI Elements
+  package: '@growthspace-engineering/cronofy'
+  note: >-
+    The app bundles a Growthspace-scoped wrapper around Cronofy's calendar UI
+    elements for scheduling. The underlying elements are Cronofy's
+    (docs.cronofy.com/developers/ui-elements/); the wrapper is not published to
+    the public npm registry.
+x-evidence:
+- url: https://storage.googleapis.com/gs-expertx-widget/expertx-agent.esm.js
+  http_status: 200
+  content_type: application/javascript
+  bytes: 1380
+- url: https://storage.googleapis.com/storage/v1/b/gs-expertx-widget/o
+  http_status: 200

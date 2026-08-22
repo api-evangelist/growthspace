@@ -1,0 +1,47 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  live responses from
+  https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  + openapi/growthspace-public-api-management-openapi-original.yml
+format: proprietary
+rfc9457: false
+note: >-
+  The published OpenAPI documents ONLY 200/201 responses — there is not a single
+  4xx or 5xx response object in the whole spec, so no error catalogue can be
+  derived from it. Everything below was observed on live unauthenticated
+  requests. The envelope is a flat JSON object with a single "msg" key; it
+  carries no type URI, no error code, no correlation identifier and no
+  machine-actionable discriminator, so a client cannot distinguish "route does
+  not exist" from "resource not found" from an upstream failure.
+envelope:
+  content_type: application/json; charset=utf-8
+  shape: '{"msg": "<string>"}'
+  fields:
+  - name: msg
+    type: string
+    description: Single opaque human-readable message. Not enumerated by the provider.
+  absent:
+  - type
+  - title
+  - detail
+  - instance
+  - code
+  - request_id
+problems:
+- status: 404
+  envelope_value: Something went wrong
+  observed_on:
+  - https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/openapi.json
+  - https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/graphql
+  - https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/.well-known/security.txt
+  note: >-
+    The same generic body and message is returned for every unmatched route; the
+    404 does not distinguish an unknown path from a missing resource.
+spec_gap:
+  operations_total: 12
+  operations_with_4xx: 0
+  operations_with_5xx: 0
+  finding: >-
+    Every operation in the spec declares only its success response, and the
+    success responses carry empty descriptions and no schema.

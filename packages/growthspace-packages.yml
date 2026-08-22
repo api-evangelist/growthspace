@@ -1,0 +1,89 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, api.github.com/orgs/growthspace-engineering,
+  storage.googleapis.com/gs-expertx-widget
+note: >-
+  Growthspace publishes NO client SDK for its Public API — there is no
+  first-party library on npm, PyPI, RubyGems, Packagist, crates.io, NuGet,
+  Maven Central or pkg.go.dev that wraps the Growthspace API, and no SDK links
+  exist on the public site. What the company does publish under the
+  github.com/growthspace-engineering organisation is agent/MCP infrastructure
+  and a front-end web component, listed below. Because none of these is a client
+  library for the Growthspace API, no `SDKs` pointer is emitted — the honest
+  SDK count is zero.
+sdk_count: 0
+package_count: 3
+packages:
+- language: typescript
+  registry: npm
+  name: '@growthspace-engineering/gs-mcp-proxy-pii-redactor'
+  url: https://www.npmjs.com/package/@growthspace-engineering/gs-mcp-proxy-pii-redactor
+  repository: https://github.com/growthspace-engineering/gs-mcp-proxy-pii-redactor
+  install: npx -y @growthspace-engineering/gs-mcp-proxy-pii-redactor
+  bin: gs-mcp-proxy
+  license: MIT
+  official: true
+  kind: tool
+  version: 2.1.1
+  published: '2025-12-01'
+  description: MCP Proxy with PII Redaction & Tool Filtering
+  note: >-
+    First-party open-source MCP middleware that sits in front of other MCP
+    servers to redact PII and filter tools. It is general-purpose agent
+    infrastructure, NOT a client for the Growthspace API.
+- language: typescript
+  registry: github
+  name: gs-squad-mcp
+  url: https://github.com/growthspace-engineering/gs-squad-mcp
+  repository: https://github.com/growthspace-engineering/gs-squad-mcp
+  install: null
+  license: MIT
+  official: true
+  kind: tool
+  version: v1.5.0
+  published: '2026-02-10'
+  note: >-
+    First-party MCP server published as source with GitHub releases. The npm
+    name @growthspace-engineering/gs-squad-mcp used in the README is NOT
+    published to the public registry (registry.npmjs.org returns "Not found"),
+    so there is no registry metadata endpoint to read; the version and date
+    above come from the GitHub releases API. No public install command is
+    documented.
+- language: javascript
+  registry: cdn
+  name: expertx-agent
+  url: https://storage.googleapis.com/gs-expertx-widget/expertx-agent.esm.js
+  install: '<script type="module" src="https://storage.googleapis.com/gs-expertx-widget/expertx-agent.esm.js"></script>'
+  official: true
+  kind: web-component
+  version: null
+  published: '2026-07-09'
+  note: >-
+    The ExpertX agent web component (Stencil custom element `expertx-agent`),
+    loaded by app.growthspace.com from a Growthspace-owned Google Cloud Storage
+    bucket. The distribution is UNPINNED — the URL carries no version segment
+    and always floats to whatever is currently in the bucket — so there is no
+    version a consumer can pin or read, and no registry metadata endpoint
+    exists for a CDN bucket. `published` is the bucket object's last-modified
+    timestamp from the GCS JSON API, which is the only currency signal
+    available. See components/growthspace-components.yml.
+registries_checked:
+- registry: npm
+  query: growthspace
+  first_party_hits: 1
+- registry: pypi
+  query: growthspace
+  http_status: 404
+  first_party_hits: 0
+- registry: github
+  org: growthspace-engineering
+  public_repos: 10
+  note: >-
+    Of the 10 public repos, gs-mcp-proxy-pii-redactor and gs-squad-mcp are
+    first-party originals; gs-atlassian-mcp (phuc-nt), pg-mcp-server (stuzero),
+    mcp-proxy-pii-redact (TBXark) and configit (Kibibit) are forks of
+    third-party projects and are not counted as Growthspace packages.
+- registry: github
+  org: growthspace
+  public_repos: 0

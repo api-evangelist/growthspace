@@ -1,0 +1,97 @@
+generated: '2026-08-22'
+method: probed
+source: live probes of every Growthspace host on 2026-08-22
+hit_count: 0
+note: >-
+  No Growthspace host serves any /.well-known/ document. www.growthspace.com
+  returns a purpose-built 404 body ("Invalid .well-known request") for every
+  path. app.growthspace.com is an Angular single-page app behind a catch-all:
+  it answers HTTP 200 with the identical 63,938-byte HTML shell for
+  /.well-known/openid-configuration, /.well-known/oauth-authorization-server,
+  /.well-known/oauth-protected-resource, /.well-known/api-catalog AND for the
+  control path /.well-known/this-should-not-exist-12345, so those 200s are a
+  soft-404 and are recorded as misses. No WellKnown or SecurityTxt pointer is
+  emitted.
+hosts:
+- host: https://www.growthspace.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://app.growthspace.com
+  soft_404_control:
+    path: /.well-known/this-should-not-exist-12345
+    status: 200
+    bytes: 63938
+    conclusion: catch-all SPA shell; every 200 below is the same body and is not a document
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 200
+    bytes: 63938
+    file: null
+    note: SPA shell identical to the control probe — not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    bytes: 63938
+    file: null
+    note: SPA shell identical to the control probe — not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    bytes: 63938
+    file: null
+    note: SPA shell identical to the control probe — not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    bytes: 63938
+    file: null
+    note: SPA shell identical to the control probe — not a document
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  soft_404_control:
+    path: /.well-known/this-should-not-exist-12345
+    status: 404
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://status.growthspace.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301

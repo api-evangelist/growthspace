@@ -1,0 +1,21 @@
+generated: '2026-08-22'
+method: searched
+source: https://www.growthspace.com/pricing
+plan_count: 0
+pricing_model: enterprise-contact-only
+note: >-
+  Growthspace publishes no pricing. https://www.growthspace.com/pricing answers
+  HTTP 200 but renders the "Let's build your precision skill development
+  strategy" contact form (page title "Contact Us"), not a plan table — there are
+  no tiers, no prices, no quotas and no overage terms anywhere on the public
+  site, and /pricing is not listed in the sitemap. There is also no separate
+  price or quota attached to the Public API: applications are provisioned by a
+  Growthspace admin inside an existing customer account.
+plans: []
+x-evidence:
+- url: https://www.growthspace.com/pricing
+  http_status: 200
+  note: renders the Contact Us form, not a pricing table
+- url: https://www.growthspace.com/sitemap.xml
+  http_status: 200
+  note: no /pricing entry

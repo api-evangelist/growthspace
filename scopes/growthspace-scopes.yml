@@ -1,0 +1,74 @@
+generated: '2026-08-22'
+method: probed
+source: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+note: >-
+  The Growthspace Public API scope catalogue is served anonymously (HTTP 200,
+  application/json) by the Public API Management microservice at
+  GET /admin/scopes. The scope names, labels, descriptions and READ/WRITE access
+  class below are copied verbatim from that response on 2026-08-22. Growthspace
+  publishes no developer portal or scopes reference page, so this live endpoint
+  is the only public source for them.
+docs: null
+schemes:
+- name: growthspace-public-api-app
+  source: probe:/admin/scopes
+  note: >-
+    Applications are provisioned in the Growthspace admin console (Admin ->
+    Public API), which issues a clientId + clientSecret pair and a bearer token
+    via POST /admin/apps/{appId}/token; tokens are renewed through
+    POST /public/refresh. The published OpenAPI declares no securitySchemes, so
+    the grant details below are recorded from the management API surface and the
+    admin console strings, not from a spec declaration.
+  flows: []
+scope_count: 11
+scopes:
+- scope: programs.read
+  label: Programs
+  access: READ
+  description: Read programs, sessions, and program catalog
+- scope: participants.read
+  label: Participants
+  access: READ
+  description: Read participants, employees, and skills
+- scope: workshops.read
+  label: Workshops
+  access: READ
+  description: Read workshop events and management data
+- scope: company.read
+  label: Company
+  access: READ
+  description: Read company info, admins, and integrations
+- scope: reporting.read
+  label: Reporting
+  access: READ
+  description: Read reports, analytics, KPIs (read-only by design)
+- scope: integration.read
+  label: Integration
+  access: READ
+  description: 'Read access for integrations: participants, programs, company'
+- scope: programs.write
+  label: Programs
+  access: WRITE
+  description: Create/update programs and run program sessions
+- scope: participants.write
+  label: Participants
+  access: WRITE
+  description: Create/update participants and employees
+- scope: workshops.write
+  label: Workshops
+  access: WRITE
+  description: Create/update workshops and workshop events
+- scope: integration.write
+  label: Integration
+  access: WRITE
+  description: 'Write access for integrations: participants and programs'
+- scope: joker
+  label: Joker (Cross-Company)
+  access: null
+  is_joker: true
+  description: "Global cross-company access — GS Admin only"
+x-evidence:
+- url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+  http_status: 200
+  content_type: application/json; charset=utf-8
+  fetched: '2026-08-22'

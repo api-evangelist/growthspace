@@ -1,23 +1,124 @@
 aid: growthspace
 name: GrowthSpace
-description: 'GrowthSpace is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Growthspace is a precision skill development platform for enterprise learning
+  and talent teams. Using AI-driven matching it pairs individual employees and
+  cohorts with a network of more than 2,800 vetted domain experts across 65+
+  countries and 80+ skill sets, then runs and measures the resulting development
+  sprints — 1:1 skill development, group skill development, workshops, internal
+  and external mentoring, and the ExpertX on-demand expert surface. The platform
+  handles skill-gap assessment, program execution, scheduling, and outcome
+  measurement in one place, with native integrations into HRIS systems,
+  Microsoft Viva Learning, Slack, Zoom and Teams. Growthspace runs a Public API
+  whose OAuth-style applications, scopes and tokens are provisioned from the
+  admin console; the scope catalogue covers programs, participants, workshops,
+  company, reporting and integration surfaces in read and write variants.
+  Headquartered in New York with customers including Siemens, Microsoft, EY and
+  Johnson & Johnson.
+image: https://cdn.prod.website-files.com/685bf37fcc056cf0bb7be4d1/68d6feb8a89f53402a0a9c26_Frame%20626177.avif
 url: https://raw.githubusercontent.com/api-evangelist/growthspace/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-22'
 modified: '2026-08-22'
 tags:
 - Company
-apis: []
+- Learning and Development
+- Talent Development
+- Human Resources
+- Coaching
+- Employee Experience
+- Skills
+- Workforce
+- Enterprise Software
+- Artificial Intelligence
+apis:
+- aid: growthspace-public-api-management
+  name: Growthspace Public API Management
+  description: >-
+    The management surface for the Growthspace Public API. It lists the scope
+    catalogue, creates and revokes Public API applications for a company, issues
+    bearer tokens for an application, updates an application's granted scopes,
+    and exposes a public token-refresh endpoint. The OpenAPI is served live by
+    the service itself at /api/docs-json (Swagger UI at /api/docs); its
+    info.title is "@growthspace-engineering/public-api-management" and its
+    contact address is gsBot@growthspace.com, both of which identify it as
+    Growthspace's own service.
+  humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+  baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  tags:
+  - Public API
+  - Application Management
+  - OAuth Scopes
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/growthspace-public-api-management-openapi-original.yml
+  - type: Overlay
+    url: overlays/growthspace-public-api-management-overlay.yaml
+  - type: APIReference
+    url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/growthspace-agentic-access.yml
+- type: DomainSecurity
+  url: security/growthspace-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.growthspace.com/
+- type: Login
+  url: https://app.growthspace.com/
+- type: Blog
+  url: https://www.growthspace.com/blog
+- type: Support
+  url: https://www.growthspace.com/contact-us
+- type: TermsOfService
+  url: https://www.growthspace.com/tos
+- type: PrivacyPolicy
+  url: https://www.growthspace.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/growthspace-engineering
+- type: StatusPage
+  url: https://status.growthspace.com/
+- type: Compliance
+  url: https://www.growthspace.com/about
+- type: LinkedIn
+  url: https://www.linkedin.com/company/growthspaceus/
+- type: YouTube
+  url: https://www.youtube.com/@Growthspaceus
+- type: OAuthScopes
+  url: scopes/growthspace-scopes.yml
+- type: Authentication
+  url: authentication/growthspace-authentication.yml
+- type: Conventions
+  url: conventions/growthspace-conventions.yml
+- type: ErrorCatalog
+  url: errors/growthspace-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/growthspace-lifecycle.yml
+- type: Conformance
+  url: conformance/growthspace-conformance.yml
+- type: Packages
+  url: packages/growthspace-packages.yml
+- type: Components
+  url: components/growthspace-components.yml
+- type: DataModel
+  url: data-model/growthspace-data-model.yml
+- type: LLMsTxt
+  url: llms/growthspace-llms.txt
+- type: Plans
+  url: plans/growthspace-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/growthspace-rate-limits.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-08-22'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1

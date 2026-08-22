@@ -1,0 +1,78 @@
+generated: '2026-08-22'
+method: derived
+status: candidate
+source: openapi/growthspace-public-api-management-openapi-original.yml
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: probed
+note: >-
+  Growthspace operates NO MCP server for its own API. There is no agent surface
+  an MCP client can call to reach Growthspace programs, participants, workshops
+  or reporting. POST tools/list was probed against /mcp and /api/mcp on
+  app.growthspace.com, backend.growthspace.com and the Public API Management
+  host and missed on all three (404, or the SPA catch-all shell).
+  Growthspace DOES publish first-party MCP software — a PII-redacting MCP proxy
+  and an internal "squad" MCP server — but both are engineering tooling that
+  front other systems, not a projection of the Growthspace product API, so no
+  MCPServer pointer is emitted. The tools[] below are DERIVED candidates from
+  the real operationIds in the Public API Management OpenAPI; nobody ships them.
+published_mcp_software:
+- name: '@growthspace-engineering/gs-mcp-proxy-pii-redactor'
+  mode: local-stdio
+  install: npx -y @growthspace-engineering/gs-mcp-proxy-pii-redactor
+  package: https://www.npmjs.com/package/@growthspace-engineering/gs-mcp-proxy-pii-redactor
+  version: 2.1.1
+  published: '2025-12-01'
+  what_it_is: >-
+    A proxy that sits between an MCP client and other MCP servers, redacting PII
+    and filtering tools. It exposes no Growthspace data.
+- name: gs-squad-mcp
+  mode: local-stdio
+  install: null
+  package: https://github.com/growthspace-engineering/gs-squad-mcp
+  version: v1.5.0
+  published: '2026-02-10'
+  what_it_is: >-
+    First-party MCP server published as source with GitHub releases; not on the
+    public npm registry and not documented as a Growthspace product surface.
+server:
+  name: growthspace-public-api-management
+  transport: null
+  url: null
+tools:
+- name: list_public_api_scopes
+  description: List the scope catalogue available to Public API applications.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_getScopes
+- name: list_public_api_apps
+  description: List the Public API applications registered for a company.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_listApps
+- name: create_public_api_app
+  description: Create a Public API application.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_createApp
+- name: generate_public_api_token
+  description: Issue a bearer token for a Public API application.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_generateToken
+- name: update_public_api_app_scopes
+  description: Replace the scopes granted to a Public API application.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_updateScopes
+- name: refresh_public_api_token_for_app
+  description: Refresh an application's token from the admin surface.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_refreshForApp
+- name: refresh_public_api_token
+  description: Refresh a token from the public refresh endpoint.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_publicRefresh
+- name: revoke_public_api_app
+  description: Revoke a Public API application. Irreversible.
+  source_operation: openapi/growthspace-public-api-management-openapi-original.yml#AppsManagementController_revokeApp
+x-evidence:
+- url: https://app.growthspace.com/mcp
+  http_status: 200
+  note: SPA catch-all shell, not an MCP endpoint
+- url: https://backend.growthspace.com/mcp
+  http_status: 404
+- url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/mcp
+  http_status: 404

@@ -1,0 +1,46 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Growthspace Public API Management
+  version: 1.0.0
+extends: openapi/growthspace-public-api-management-openapi-original.yml
+x-generated: '2026-08-22'
+x-method: generated
+x-source: >-
+  https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs-yaml
+x-note: >-
+  The harvested spec is never mutated. This overlay records the enhancements API
+  Evangelist can state from evidence: the real server the document was served
+  from (the published servers[] array is empty), a description of the service,
+  and the provenance of the scope catalogue that the spec itself does not carry.
+actions:
+- target: $.servers
+  description: >-
+    The published document ships `servers: []`. The host below is the exact
+    origin the spec was fetched from and is the origin every operation was
+    probed against.
+  update:
+  - url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+    description: Google App Engine service public-api-management, GCP project growthspace-246311
+- target: $.info
+  update:
+    x-apievangelist-provenance: >-
+      Fetched from the running service at /api/docs-yaml on 2026-08-22 (HTTP
+      200). Ownership confirmed by info.title
+      "@growthspace-engineering/public-api-management", info.contact.email
+      gsBot@growthspace.com and the growthspace-246311 App Engine project.
+    x-apievangelist-scopes: scopes/growthspace-scopes.yml
+    x-apievangelist-error-envelope: '{"msg": "<string>"}'
+- target: $.paths['/admin/scopes'].get
+  description: The scope catalogue endpoint answers anonymously and is the only public source for Growthspace Public API scopes.
+  update:
+    summary: List the Public API scope catalogue
+    description: >-
+      Returns the 11 scopes a Growthspace Public API application can be granted,
+      each with a name, label, description, READ/WRITE access class and isJoker
+      flag. Observed to answer HTTP 200 without credentials on 2026-08-22.
+- target: $.paths['/admin/apps/{appId}'].delete
+  description: The admin console states this action cannot be undone.
+  update:
+    x-apievangelist-reversibility:
+      reversible: false
+      provider_statement: 'This cannot be undone.'

@@ -1,0 +1,33 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  live response headers from
+  https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+limit_count: 0
+note: >-
+  Growthspace documents no rate limits — there is no developer portal, no API
+  reference prose, and the OpenAPI declares no 429 response on any operation. A
+  live unauthenticated request to the Public API Management service returned no
+  rate-limit signalling headers of any kind, so an agent has no runtime budget
+  signal to read.
+limits: []
+headers:
+  observed: []
+  absent:
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+  - RateLimit
+  - RateLimit-Policy
+  - Retry-After
+  present_on_probe:
+  - etag
+  - vary
+  - access-control-allow-origin
+  - x-cloud-trace-context
+  - alt-svc
+exhaustion_status: null
+x-evidence:
+- url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+  http_status: 200
+  fetched: '2026-08-22'

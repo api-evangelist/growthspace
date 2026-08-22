@@ -1,0 +1,55 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs-json
+  + https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+  + the Public API Management screens in the app.growthspace.com bundle
+note: >-
+  The published OpenAPI for the Public API Management service declares NO
+  components.securitySchemes, so nothing here is derived from a spec
+  declaration. The model below is recorded from what the service and the admin
+  console actually expose: an application is created for a company, granted a
+  subset of the 11 published scopes, and issued a clientId / clientSecret pair
+  plus a bearer token. Growthspace publishes no authentication documentation
+  page, so no docs URL can be recorded.
+docs: null
+summary:
+  types:
+  - bearer-token
+  - client-credentials
+  api_key_in: []
+  oauth2_flows: []
+  spec_declared_schemes: 0
+  scope_count: 11
+schemes:
+- name: growthspace-public-api-application
+  type: client-credentials
+  spec_declared: false
+  sources:
+  - probe:/admin/apps
+  - probe:/admin/apps/{appId}/token
+  - probe:/public/refresh
+  credentials:
+  - clientId
+  - clientSecret
+  token_issue_operation: AppsManagementController_generateToken
+  token_refresh_operation: AppsManagementController_publicRefresh
+  scope_grant_operation: AppsManagementController_updateScopes
+  revoke_operation: AppsManagementController_revokeApp
+  scopes_source: scopes/growthspace-scopes.yml
+observations:
+- observation: >-
+    GET /admin/scopes answers HTTP 200 anonymously and returns the full scope
+    catalogue. No credential was presented.
+  url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+  http_status: 200
+- observation: >-
+    The service responds with access-control-allow-origin "*" and no
+    WWW-Authenticate challenge on the scope endpoint.
+  url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/admin/scopes
+  http_status: 200
+- observation: >-
+    No /.well-known/oauth-authorization-server, /.well-known/oauth-protected-resource
+    or /.well-known/openid-configuration document is served on any Growthspace host.
+  url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/.well-known/oauth-authorization-server
+  http_status: 404

@@ -1,0 +1,35 @@
+generated: '2026-08-22'
+method: searched
+source: https://status.growthspace.com/ + openapi/growthspace-public-api-management-openapi-original.yml
+versioning:
+  scheme: none-declared
+  current: null
+  note: >-
+    The OpenAPI carries info.version "0.0.0" and no version segment appears in
+    any path. The Public API Management service exposes no versioned route
+    prefix, no version header, and Growthspace publishes no versioning policy.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No deprecation or sunset policy is published, and no operation in the spec
+    is marked deprecated. RFC 8594 Sunset/Deprecation headers were not observed
+    on any probed response.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.growthspace.com/
+status_page_provider: Better Stack
+status_page_note: >-
+  status.growthspace.com returns HTTP 200 and is a hosted Better Stack status
+  page on the Growthspace domain.
+support_lifecycle:
+  revocation: >-
+    Public API applications are revoked with
+    DELETE /admin/apps/{appId} (AppsManagementController_revokeApp). The admin
+    console states the action "cannot be undone".
+deprecated_operations: []
+x-evidence:
+- url: https://status.growthspace.com/
+  http_status: 200
+  fetched: '2026-08-22'

@@ -1,0 +1,118 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  openapi/growthspace-public-api-management-openapi-original.yml + live probes of
+  https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+note: >-
+  Growthspace publishes no developer documentation, so every convention below is
+  read from the served OpenAPI or observed on a live response. Where a
+  convention is simply not expressed by the contract, it is recorded as
+  undocumented rather than guessed.
+authentication:
+  style: bearer token issued to a provisioned application (clientId + clientSecret)
+  documented: false
+  artifact: authentication/growthspace-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  evidence: >-
+    No Idempotency-Key parameter, header or requestBody field appears anywhere in
+    the OpenAPI, and no idempotency guidance is published. POST /admin/apps and
+    POST /admin/apps/{appId}/token carry no de-duplication contract. No
+    Idempotency pointer is emitted.
+pagination:
+  style: none-declared
+  evidence: >-
+    The only collection operation, GET /admin/apps, takes a single required
+    `companyId` query parameter and declares no limit/offset/cursor parameter and
+    no paged response schema.
+filtering:
+  parameters:
+  - name: companyId
+    in: query
+    required: true
+    operation: AppsManagementController_listApps
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  header: x-cloud-trace-context
+  provider_supplied: false
+  note: >-
+    Responses carry Google Cloud's x-cloud-trace-context header, which is the
+    App Engine platform's trace id rather than a Growthspace-documented
+    correlation identifier. No request-id contract is published.
+versioning:
+  scheme: none-declared
+  artifact: lifecycle/growthspace-lifecycle.yml
+error_envelope:
+  shape: '{"msg": "<string>"}'
+  rfc9457: false
+  artifact: errors/growthspace-problem-types.yml
+rate_limit_signalling:
+  headers: []
+  artifact: rate-limits/growthspace-rate-limits.yml
+cors:
+  access_control_allow_origin: '*'
+  observed_on: /admin/scopes
+caching:
+  etag: true
+  observed_on: /admin/scopes
+dry_run_mode:
+  supported: false
+  evidence: No dry-run, preview, simulate or validate-only parameter exists in the contract.
+reversibility:
+  grade: none
+  applicable: true
+  note: >-
+    The contract has a real write surface (create app, generate token, update
+    scopes, refresh token, revoke app) and NOT ONE of those writes has a
+    documented reversal path or window. The closest thing to an undo —
+    DELETE /admin/apps/{appId} — is itself a destructive operation, and the
+    Growthspace admin console explicitly warns "Are you sure you want to revoke
+    \"{{appName}}\"? This cannot be undone." (string read verbatim from the
+    app.growthspace.com bundle). An agent acting on this API cannot determine
+    whether any action it takes can be taken back, because the provider never
+    says.
+  write_surface:
+  - operation: AppsManagementController_createApp
+    method: POST
+    path: /admin/apps
+    reversal: AppsManagementController_revokeApp
+    reversal_kind: destructive-delete
+    window: null
+    note: >-
+      Revoking is the only way to unwind a created app, and revocation is itself
+      irreversible. Recorded as a reversal path that is not a restore.
+  - operation: AppsManagementController_updateScopes
+    method: PUT
+    path: /admin/apps/{appId}/scopes
+    reversal: null
+    window: null
+    note: >-
+      A PUT replaces the granted scope set. No prior-state read is guaranteed
+      alongside it and no restore operation exists, so a scope change cannot be
+      rolled back except by re-submitting a set the caller recorded itself.
+  - operation: AppsManagementController_generateToken
+    method: POST
+    path: /admin/apps/{appId}/token
+    reversal: null
+    window: null
+  - operation: AppsManagementController_refreshForApp
+    method: POST
+    path: /admin/apps/{appId}/refresh
+    reversal: null
+    window: null
+  - operation: AppsManagementController_publicRefresh
+    method: POST
+    path: /public/refresh
+    reversal: null
+    window: null
+  - operation: AppsManagementController_revokeApp
+    method: DELETE
+    path: /admin/apps/{appId}
+    reversal: null
+    window: null
+    provider_statement: 'This cannot be undone.'
+    provider_statement_source: app.growthspace.com bundle, publicApi.revokeConfirm string

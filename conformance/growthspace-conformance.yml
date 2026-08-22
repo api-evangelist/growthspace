@@ -1,0 +1,92 @@
+generated: '2026-08-22'
+method: searched
+source: https://www.growthspace.com/about + openapi/growthspace-public-api-management-openapi-original.yml
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: >-
+    The Public API Management service serves a valid OpenAPI 3.0.0 document at
+    /api/docs-json (Swagger UI at /api/docs), 12 operations across 11 paths.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No oauth2 securityScheme is declared and no RFC 8414 authorization-server
+    metadata is served. Applications use a clientId/clientSecret + bearer token
+    issued by the provider's own admin endpoints, with a proprietary
+    /public/refresh renewal call rather than an RFC 6749 token endpoint.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors are returned as {"msg": "..."} with content-type application/json,
+    not application/problem+json. See errors/growthspace-problem-types.yml.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on every host.
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset or Deprecation headers observed; no deprecation policy published.
+- id: rfc8615-well-known
+  conforms: false
+  evidence: No /.well-known/ document is served on any host.
+- id: a2a-agent-card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on every
+    Growthspace host.
+- id: scim2
+  conforms: false
+  evidence: >-
+    No SCIM schema URN, /scim/v2 path or ServiceProviderConfig is exposed.
+    Recorded because SCIM is the standard an HR/talent platform's participant and
+    employee provisioning surface would be expected to speak; Growthspace's
+    participants.read / participants.write scopes cover the same territory with a
+    proprietary shape, and HRIS synchronisation is brokered through Merge
+    (cdn.merge.dev is loaded by app.growthspace.com) rather than a native
+    standards-based provisioning endpoint.
+domain_standards:
+  market: talent development / corporate learning
+  candidates_probed:
+  - id: scim2
+    found: false
+  - id: lti-1.3
+    found: false
+  - id: xapi-tincan
+    found: false
+  - id: scorm
+    found: false
+  - id: caliper-analytics
+    found: false
+  - id: hr-open-standards
+    found: false
+  finding: >-
+    No domain standard is declared anywhere in the contract or on the public
+    site. This is reward-only in the rubric; recorded as an honest negative.
+compliance_program:
+  published: true
+  source: https://www.growthspace.com/about
+  statement: 'ISO 27001/27017/27018, SOC2 certified'
+  certifications:
+  - ISO 27001
+  - ISO 27017
+  - ISO 27018
+  - SOC 2
+  privacy_regimes:
+  - CCPA
+  - GDPR
+  evidence:
+  - url: https://www.growthspace.com/about
+    http_status: 200
+    note: >-
+      Site footer renders the literal string "ISO 27001/27017/27018, SOC2
+      certified" alongside a CCPA badge image. Growthspace publishes no trust
+      center, no certification portal and no page dedicated to compliance — the
+      claim exists only as this footer statement.
+  - url: https://www.growthspace.com/subprocessors
+    http_status: 200
+    note: published subprocessor list
+  - url: https://www.growthspace.com/dpa-coach
+    http_status: 200
+    note: published data processing agreement for experts/coaches

@@ -1,0 +1,157 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      operationId: AppController_microserviceInfo
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /up-time-check:
+    get:
+      operationId: AppController_upTimeCheck
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /_ah/warmup:
+    get:
+      operationId: AppController_warmupRequest
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /healthz:
+    get:
+      operationId: AppController_healthz
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /admin/scopes:
+    get:
+      operationId: AppsManagementController_getScopes
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /admin/apps:
+    post:
+      operationId: AppsManagementController_createApp
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAppDto'
+      responses:
+        '201':
+          description: ''
+    get:
+      operationId: AppsManagementController_listApps
+      parameters:
+        - name: companyId
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /admin/apps/{appId}/token:
+    post:
+      operationId: AppsManagementController_generateToken
+      parameters:
+        - name: appId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '201':
+          description: ''
+  /admin/apps/{appId}:
+    delete:
+      operationId: AppsManagementController_revokeApp
+      parameters:
+        - name: appId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /admin/apps/{appId}/scopes:
+    put:
+      operationId: AppsManagementController_updateScopes
+      parameters:
+        - name: appId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateScopesDto'
+      responses:
+        '200':
+          description: ''
+  /admin/apps/{appId}/refresh:
+    post:
+      operationId: AppsManagementController_refreshForApp
+      parameters:
+        - name: appId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokenDto'
+      responses:
+        '201':
+          description: ''
+  /public/refresh:
+    post:
+      operationId: AppsManagementController_publicRefresh
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokenDto'
+      responses:
+        '201':
+          description: ''
+info:
+  title: '@growthspace-engineering/public-api-management'
+  description: Management of GrowthSpace public API
+  version: 0.0.0
+  contact:
+    name: gr0wth-b0t
+    url: github.com/gr0wth-b0t
+    email: gsBot@growthspace.com
+tags:
+  - name: default
+    description: utility api endpoints
+servers: []
+components:
+  schemas:
+    CreateAppDto:
+      type: object
+      properties: {}
+    UpdateScopesDto:
+      type: object
+      properties: {}
+    RefreshTokenDto:
+      type: object
+      properties: {}

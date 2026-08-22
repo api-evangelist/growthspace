@@ -1,0 +1,76 @@
+generated: '2026-08-22'
+method: derived
+source: openapi/growthspace-public-api-management-openapi-original.yml
+note: >-
+  Derived from the paths and DTO names of the Public API Management OpenAPI. The
+  three declared schemas — CreateAppDto, UpdateScopesDto, RefreshTokenDto — are
+  all `type: object` with an EMPTY `properties` map, so the spec names its
+  request bodies without describing a single field. The entity graph below is
+  therefore reconstructed from path structure and operation semantics, and the
+  attributes of each entity are unknown from the contract. The scope catalogue
+  is the one place the contract is genuinely descriptive, and it is read live
+  (see scopes/growthspace-scopes.yml).
+entities:
+- name: Company
+  description: The Growthspace customer tenant that owns Public API applications.
+  identifier: companyId
+  source: query parameter on AppsManagementController_listApps; CreateAppDto
+- name: App
+  description: >-
+    A Public API application. Created for a company, granted a set of scopes,
+    issued a clientId/clientSecret pair, and revocable.
+  identifier: appId
+  source: path parameter on /admin/apps/{appId}
+  operations:
+  - AppsManagementController_createApp
+  - AppsManagementController_listApps
+  - AppsManagementController_revokeApp
+- name: Scope
+  description: >-
+    A named permission an App can hold. 11 exist; each carries a name, label,
+    description, READ/WRITE access class and an isJoker flag.
+  identifier: name
+  source: live GET /admin/scopes
+  attributes:
+  - name
+  - label
+  - description
+  - access
+  - isJoker
+- name: Token
+  description: A bearer credential minted for an App and renewable by refresh token.
+  source: /admin/apps/{appId}/token, /admin/apps/{appId}/refresh, /public/refresh
+relationships:
+- from: Company
+  to: App
+  kind: has_many
+  via: companyId
+- from: App
+  to: Scope
+  kind: has_many
+  via: UpdateScopesDto
+- from: App
+  to: Token
+  kind: has_many
+  via: appId
+- from: Token
+  to: App
+  kind: belongs_to
+  via: appId
+resource_domains_named_by_scopes:
+- programs
+- participants
+- workshops
+- company
+- reporting
+- integration
+resource_domains_note: >-
+  The scope catalogue names six resource domains (programs, participants,
+  workshops, company, reporting, integration) that the Growthspace Public API
+  data plane must expose. NO contract for that data plane is published — the
+  only OpenAPI Growthspace serves is the management surface — so those six
+  domains are recorded as named-but-undocumented rather than modelled here.
+schema_gaps:
+  schemas_declared: 3
+  schemas_with_properties: 0
+  response_schemas: 0
