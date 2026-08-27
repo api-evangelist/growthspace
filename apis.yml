@@ -34,29 +34,78 @@ tags:
 - Enterprise Software
 - Artificial Intelligence
 apis:
-- aid: growthspace-public-api-management
-  name: Growthspace Public API Management
-  description: >-
-    The management surface for the Growthspace Public API. It lists the scope
-    catalogue, creates and revokes Public API applications for a company, issues
-    bearer tokens for an application, updates an application's granted scopes,
-    and exposes a public token-refresh endpoint. The OpenAPI is served live by
-    the service itself at /api/docs-json (Swagger UI at /api/docs); its
-    info.title is "@growthspace-engineering/public-api-management" and its
-    contact address is gsBot@growthspace.com, both of which identify it as
-    Growthspace's own service.
+- aid: growthspace:growthspace-admin-api
+  name: GrowthSpace Admin API
+  description: The Admin API from GrowthSpace — 6 operation(s) for admin.
   humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
   baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
   tags:
-  - Public API
-  - Application Management
-  - OAuth Scopes
-  - Tokens
+  - Admin
   properties:
   - type: OpenAPI
-    url: openapi/growthspace-public-api-management-openapi-original.yml
-  - type: Overlay
-    url: overlays/growthspace-public-api-management-overlay.yaml
+    url: openapi/growthspace-admin-api-openapi.yml
+  - type: APIReference
+    url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+- aid: growthspace:growthspace-ah-api
+  name: GrowthSpace Ah API
+  description: The Ah API from GrowthSpace — 1 operation(s) for ah.
+  humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+  baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  tags:
+  - Ah
+  properties:
+  - type: OpenAPI
+    url: openapi/growthspace-ah-api-openapi.yml
+  - type: APIReference
+    url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+- aid: growthspace:growthspace-growthspace-engineering-public-api-management-api
+  name: GrowthSpace @growthspace Engineering/public Api Management API
+  description: >-
+    The @growthspace Engineering/public Api Management API from GrowthSpace — 1 operation(s) for @growthspace
+    engineering/public api management.
+  humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+  baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  tags:
+  - '@growthspace Engineering/public Api Management'
+  properties:
+  - type: OpenAPI
+    url: openapi/growthspace-growthspace-engineering-public-api-management-api-openapi.yml
+  - type: APIReference
+    url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+- aid: growthspace:growthspace-healthz-api
+  name: GrowthSpace Healthz API
+  description: The Healthz API from GrowthSpace — 1 operation(s) for healthz.
+  humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+  baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  tags:
+  - Healthz
+  properties:
+  - type: OpenAPI
+    url: openapi/growthspace-healthz-api-openapi.yml
+  - type: APIReference
+    url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+- aid: growthspace:growthspace-public-api
+  name: GrowthSpace Public API
+  description: The Public API from GrowthSpace — 1 operation(s) for public.
+  humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+  baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  tags:
+  - Public
+  properties:
+  - type: OpenAPI
+    url: openapi/growthspace-public-api-openapi.yml
+  - type: APIReference
+    url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+- aid: growthspace:growthspace-up-time-check-api
+  name: GrowthSpace Up Time Check API
+  description: The Up Time Check API from GrowthSpace — 1 operation(s) for up time check.
+  humanURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
+  baseURL: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com
+  tags:
+  - Up Time Check
+  properties:
+  - type: OpenAPI
+    url: openapi/growthspace-up-time-check-api-openapi.yml
   - type: APIReference
     url: https://public-api-management-dot-growthspace-246311.oa.r.appspot.com/api/docs
 maintainers:
@@ -65,6 +114,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/growthspace-public-api-management-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/growthspace-agentic-access.yml
 - type: DomainSecurity
