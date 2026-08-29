@@ -15,6 +15,18 @@ description: >-
   company, reporting and integration surfaces in read and write variants.
   Headquartered in New York with customers including Siemens, Microsoft, EY and
   Johnson & Johnson.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/685bf37fcc056cf0bb7be4d1/68d6feb8a89f53402a0a9c26_Frame%20626177.avif
 url: https://raw.githubusercontent.com/api-evangelist/growthspace/refs/heads/main/apis.yml
 x-type: company
