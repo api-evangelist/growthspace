@@ -1,0 +1,22 @@
+openapi: 3.2.0
+info:
+  title: '@growthspace-engineering/public-api-management Healthz API'
+  description: Management of GrowthSpace public API
+  version: 0.0.0
+  contact:
+    name: gr0wth-b0t
+    url: github.com/gr0wth-b0t
+    email: gsBot@growthspace.com
+servers: []
+tags:
+- name: Healthz
+paths:
+  /healthz:
+    get:
+      operationId: AppController_healthz
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Healthz

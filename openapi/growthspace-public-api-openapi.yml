@@ -1,0 +1,33 @@
+openapi: 3.2.0
+info:
+  title: '@growthspace-engineering/-api-management Public API'
+  description: Management of GrowthSpace public API
+  version: 0.0.0
+  contact:
+    name: gr0wth-b0t
+    url: github.com/gr0wth-b0t
+    email: gsBot@growthspace.com
+servers: []
+tags:
+- name: Public
+paths:
+  /public/refresh:
+    post:
+      operationId: AppsManagementController_publicRefresh
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshTokenDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Public
+components:
+  schemas:
+    RefreshTokenDto:
+      type: object
+      properties: {}

@@ -1,0 +1,22 @@
+openapi: 3.2.0
+info:
+  title: '@growthspace-engineering/public-api-management Up Time Check API'
+  description: Management of GrowthSpace public API
+  version: 0.0.0
+  contact:
+    name: gr0wth-b0t
+    url: github.com/gr0wth-b0t
+    email: gsBot@growthspace.com
+servers: []
+tags:
+- name: Up Time Check
+paths:
+  /up-time-check:
+    get:
+      operationId: AppController_upTimeCheck
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Up Time Check

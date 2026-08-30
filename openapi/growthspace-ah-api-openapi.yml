@@ -1,0 +1,22 @@
+openapi: 3.2.0
+info:
+  title: '@growthspace-engineering/public-api-management Ah API'
+  description: Management of GrowthSpace public API
+  version: 0.0.0
+  contact:
+    name: gr0wth-b0t
+    url: github.com/gr0wth-b0t
+    email: gsBot@growthspace.com
+servers: []
+tags:
+- name: Ah
+paths:
+  /_ah/warmup:
+    get:
+      operationId: AppController_warmupRequest
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Ah
