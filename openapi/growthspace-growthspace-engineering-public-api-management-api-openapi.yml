@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: '@growthspace-engineering/public-api-management @growthspace Engineering/public Api Management API'
+  title: '@growthspace-engineering/public-api-management @growthspace…'
   description: Management of GrowthSpace public API
   version: 0.0.0
   contact:
@@ -20,3 +20,5 @@ paths:
           description: ''
       tags:
       - '@growthspace Engineering/public Api Management'
+      summary: App controller microservice info
+      x-summary-source: derived

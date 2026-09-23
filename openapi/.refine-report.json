@@ -1,0 +1,48 @@
+{
+  "provider": "growthspace",
+  "sources": [
+    "_original/growthspace-public-api-management-openapi-original.yml"
+  ],
+  "outputs": [
+    "growthspace-growthspace-engineering-public-api-management-api-openapi.yml",
+    "growthspace-admin-api-openapi.yml",
+    "growthspace-ah-api-openapi.yml",
+    "growthspace-healthz-api-openapi.yml",
+    "growthspace-public-api-openapi.yml",
+    "growthspace-up-time-check-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "growthspace-public-api-management-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths GET / -> @growthspace Engineering/public Api Management",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths GET /up-time-check -> Up Time Check",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths GET /_ah/warmup -> Ah",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths GET /healthz -> Healthz",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths GET /admin/scopes -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths POST /admin/apps -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths GET /admin/apps -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths POST /admin/apps/{appId}/token -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths DELETE /admin/apps/{appId} -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths PUT /admin/apps/{appId}/scopes -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths POST /admin/apps/{appId}/refresh -> Admin",
+    "growthspace-public-api-management-openapi-original.yml: tagged paths POST /public/refresh -> Public",
+    "growthspace-public-api-management-openapi-original.yml: declared missing tag: @growthspace Engineering/public Api Management",
+    "growthspace-public-api-management-openapi-original.yml: declared missing tag: Admin",
+    "growthspace-public-api-management-openapi-original.yml: declared missing tag: Ah",
+    "growthspace-public-api-management-openapi-original.yml: declared missing tag: Healthz",
+    "growthspace-public-api-management-openapi-original.yml: declared missing tag: Public",
+    "growthspace-public-api-management-openapi-original.yml: declared missing tag: Up Time Check",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "growthspace-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "growthspace-ah-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "growthspace-growthspace-engineering-public-api-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "growthspace-healthz-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "growthspace-public-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "growthspace-up-time-check-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

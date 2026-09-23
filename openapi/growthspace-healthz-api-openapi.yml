@@ -20,3 +20,5 @@ paths:
           description: ''
       tags:
       - Healthz
+      summary: App controller healthz
+      x-summary-source: derived

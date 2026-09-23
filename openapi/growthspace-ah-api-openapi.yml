@@ -20,3 +20,5 @@ paths:
           description: ''
       tags:
       - Ah
+      summary: App controller warmup request
+      x-summary-source: derived

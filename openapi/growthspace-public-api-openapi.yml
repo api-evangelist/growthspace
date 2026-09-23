@@ -26,6 +26,8 @@ paths:
           description: ''
       tags:
       - Public
+      summary: Apps management controller public refresh
+      x-summary-source: derived
 components:
   schemas:
     RefreshTokenDto:

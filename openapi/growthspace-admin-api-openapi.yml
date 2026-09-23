@@ -20,6 +20,8 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller get scopes
+      x-summary-source: derived
   /admin/apps:
     post:
       operationId: AppsManagementController_createApp
@@ -35,6 +37,8 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller create app
+      x-summary-source: derived
     get:
       operationId: AppsManagementController_listApps
       parameters:
@@ -48,6 +52,8 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller list apps
+      x-summary-source: derived
   /admin/apps/{appId}/token:
     post:
       operationId: AppsManagementController_generateToken
@@ -62,6 +68,8 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller generate token
+      x-summary-source: derived
   /admin/apps/{appId}:
     delete:
       operationId: AppsManagementController_revokeApp
@@ -76,6 +84,8 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller revoke app
+      x-summary-source: derived
   /admin/apps/{appId}/scopes:
     put:
       operationId: AppsManagementController_updateScopes
@@ -96,6 +106,8 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller update scopes
+      x-summary-source: derived
   /admin/apps/{appId}/refresh:
     post:
       operationId: AppsManagementController_refreshForApp
@@ -116,14 +128,16 @@ paths:
           description: ''
       tags:
       - Admin
+      summary: Apps management controller refresh for app
+      x-summary-source: derived
 components:
   schemas:
     CreateAppDto:
       type: object
       properties: {}
-    RefreshTokenDto:
+    UpdateScopesDto:
       type: object
       properties: {}
-    UpdateScopesDto:
+    RefreshTokenDto:
       type: object
       properties: {}
