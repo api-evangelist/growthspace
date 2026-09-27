@@ -132,12 +132,12 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CreateAppDto:
+    RefreshTokenDto:
       type: object
       properties: {}
     UpdateScopesDto:
       type: object
       properties: {}
-    RefreshTokenDto:
+    CreateAppDto:
       type: object
       properties: {}
