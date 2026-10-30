@@ -64,5 +64,132 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-GrowthSpace is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Growthspace is a precision skill development platform for enterprise learning and talent teams. Using AI-driven matching it pairs individual employees and cohorts with a network of more than 2,800 vetted domain experts across 65+ countries and 80+ skill sets, then runs and measures the resulting development sprints — 1:1 skill development, group skill development, workshops, internal and external mentoring, and the ExpertX on-demand expert surface. The platform handles skill-gap assessment, program execution, scheduling, and outcome measurement in one place, with native integrations into HRIS systems, Microsoft Viva Learning, Slack, Zoom and Teams. Growthspace runs a Public API whose OAuth-style applications, scopes and tokens are provisioned from the admin console; the scope catalogue covers programs, participants, workshops, company, reporting and integration surfaces in read and write variants. Headquartered in New York with customers including Siemens, Microsoft, EY and Johnson & Johnson.
+
+**Areas:** Company · Learning and Development · Talent Development · Human Resources · Coaching · Employee Experience · Skills · Workforce · Enterprise Software · Artificial Intelligence
+
+## GrowthSpace on APIs.io
+
+Everything profiled for GrowthSpace is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/growthspace/](https://apis.io/providers/growthspace/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [GrowthSpace Admin API](https://apis.io/apis/growthspace/growthspace-admin-api/) — The Admin API from GrowthSpace — 6 operation(s) for admin.
+- [GrowthSpace Ah API](https://apis.io/apis/growthspace/growthspace-ah-api/) — The Ah API from GrowthSpace — 1 operation(s) for ah.
+- [GrowthSpace @growthspace Engineering/public Api Management API](https://apis.io/apis/growthspace/growthspace-growthspace-engineering-public-api-management-api/) — The @growthspace Engineering/public Api Management API from GrowthSpace — 1 operation(s) for @growthspace engineering/public api management.
+- [GrowthSpace Healthz API](https://apis.io/apis/growthspace/growthspace-healthz-api/) — The Healthz API from GrowthSpace — 1 operation(s) for healthz.
+- [GrowthSpace Public API](https://apis.io/apis/growthspace/growthspace-public-api/) — The Public API from GrowthSpace — 1 operation(s) for public.
+- [GrowthSpace Up Time Check API](https://apis.io/apis/growthspace/growthspace-up-time-check-api/) — The Up Time Check API from GrowthSpace — 1 operation(s) for up time check.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [growthspace-public-api-management](https://apis.io/servers/growthspace/growthspace-public-api-management/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Growthspace Agentic Access](https://apis.io/agentic-access/growthspace/growthspace-agentic-access/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Growthspace Public Api Management Overlay](https://apis.io/overlays/growthspace/growthspace-public-api-management-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Growthspace Authentication](https://apis.io/security/growthspace/growthspace-authentication/)
+- [Growthspace Domain Security](https://apis.io/security/growthspace/growthspace-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Growthspace Scopes](https://apis.io/scopes/growthspace/growthspace-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Growthspace Plans Pricing](https://apis.io/plans/growthspace/growthspace-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Growthspace Rate Limits](https://apis.io/rate-limits/growthspace/growthspace-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.growthspace.com/)
+- [Support](https://www.growthspace.com/contact-us)
+- [Blog](https://www.growthspace.com/blog)
+- [Compliance](https://www.growthspace.com/about)
+- [Terms of service](https://www.growthspace.com/tos)
+- [Privacy policy](https://www.growthspace.com/privacy-policy)
+- [GitHub](https://github.com/growthspace-engineering)
+- [Status](https://status.growthspace.com/)
+
+## API Evangelist rating
+
+**Kin Score 32.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 32.4 |
+| Contract governance | 18.2 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.0 |
+| Access clarity | 35.5 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 36.4** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/growthspace/](https://apis.io/providers/growthspace/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GrowthSpace: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/growthspace/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
